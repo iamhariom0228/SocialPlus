@@ -1,0 +1,85 @@
+.login {
+  min-height: 100vh;
+  background-color: #f8ceec;
+  background-image: linear-gradient(315deg, #f8ceec 0%, #a88beb 74%);
+
+//   background-color: rgba(193, 190, 255, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .card {
+    width: 60%;
+    display: flex;
+    border-radius: 5px;
+    min-height: 600px;
+    overflow: hidden;
+
+    .left {
+      flex: 1;
+      background: linear-gradient(rgba(39, 11, 96, 0.5), rgba(39, 11, 96, 0.5)),
+        url("https://images.pexels.com/photos/3228727/pexels-photo-3228727.jpeg?auto=compress&cs=tinysrgb&w=1600")
+        center;
+       background-size: cover;
+       padding: 50px;
+       display: flex;
+       flex-direction: column;   
+       gap: 20px;
+       color: white;
+      h1 {
+        font-size: 5rem;
+        line-height: 1.2;
+        margin: 0;
+      }
+      p {
+        font-size: 0.875rem;
+        line-height: 1.2;
+      }
+      span {
+        font-size: 0.875rem;
+        line-height: 1.2;
+      }
+      button {
+        width: 50%;
+        padding: 10px;
+        border: none;
+        background-color: white;
+        color: rebeccapurple;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+
+    .right {
+      flex: 1;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      background-color: white;
+      justify-content: center;
+
+        h1 {
+            font-size: 2.5rem;
+            color: #555;
+            margin: 0;
+        }
+        input{
+            border: none;
+            border-bottom: 1px solid lightgray;
+            padding: 20px 10px;
+        }
+        button{
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #938eef;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+
+    }
+  }
+}
