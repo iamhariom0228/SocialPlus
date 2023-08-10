@@ -1,3 +1,5 @@
+@import '../../style.scss';
+
 .register {
   min-height: 100vh;
   background-color: #f8ceec;
@@ -6,8 +8,12 @@
   align-items: center;
   justify-content: center;
 
+  @include tablet{
+    width: 100%;
+  }
+
   .card {
-    width: 60%;
+    width: 80%;
     display: flex;
     border-radius: 5px;
     min-height: 600px;

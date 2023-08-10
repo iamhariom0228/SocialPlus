@@ -1,16 +1,38 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./login.scss";
-
-import React, { useContext } from "react";
+import axios from "axios";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../../context/authContext";
 
 const Login = () => {
+  const [inputs, setInputs] = useState({
+    email: "",
+    password: "",
+  });
 
-   const { login } = useContext(AuthContext);
+  const [error, setError] = useState(null);
 
-   const handleLogin = () => {
-     login();
-   };
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  }
+
+  const { login } = useContext(AuthContext);
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      await login(inputs);
+      navigate("/");
+    } catch (err) {
+      setError(err.response.data.message);
+    }
+  };
+
+  console.log(error);
+
   return (
     <div className="login">
       <div className="card">
@@ -28,8 +50,9 @@ const Login = () => {
         </div>
         <div className="right">
           <h1>LogIn</h1>
-          <input type="text" name="username" placeholder="Username." />
-          <input type="password" name="password" placeholder="Passowrd" />
+          <input type="email" name="email" placeholder="Email" onChange={handleChange}/>
+          <input type="password" name="password" placeholder="Passowrd" onChange={handleChange}/>
+          {error && <span className="error">{error}</span>}
           <button type="submit" onClick={handleLogin}>
             Login
           </button>
